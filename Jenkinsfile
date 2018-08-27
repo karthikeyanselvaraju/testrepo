@@ -1,7 +1,5 @@
 pipeline {
-  agent any
-  environment {
-  
+  agent any 
   /*Branches enabled with CICD currently
     master, hotfix, release* 
   */
@@ -29,7 +27,7 @@ pipeline {
         } 
       }
     }								
-  }
+  
 }
     post {
 	        success{  			
