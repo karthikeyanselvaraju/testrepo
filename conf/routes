@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+# GET /offer/:offerId/definition com.safeway.app.emjo.offermanagement.controller.OfferManagementController.getOfferDefinition(offerId)
+
+GET /emlss/services/integratedshoppinglist/list	com.safeway.app.emju.mylist.controller.ShoppingListController.getShoppingList(details: String ?= "y", storeId: String ?= null, timestamp: String ?= null)
+GET /emlss/services/internal/integratedshoppinglist/list	com.safeway.app.emju.mylist.controller.ShoppingListController.getShoppingList(details: String ?= "y", storeId: String ?= null, timestamp: String ?= null)
+GET /emlss/services/integratedshoppinglist/list/getCount	com.safeway.app.emju.mylist.controller.ShoppingListController.getShoppingListCount(storeId: String ?= null)
+POST /emlss/services/integratedshoppinglist/list/email	com.safeway.app.emju.mylist.controller.ShoppingListController.emailShoppingList(storeId: String ?= null)
+GET /J4UProgram1/services/purchasehistory com.safeway.app.emju.mylist.purchasehistory.controller.PurchaseHistoryController.findPurchaseItemsAndOffers()
+
+# Health Check Service required for Application Gateway
+GET /MyList1/services/health/status com.safeway.app.emju.mylist.monitoring.controller.HealthMonitorController.getHealth()
+
+# Logger API
+POST	/MyList1/services/logger/update       com.safeway.app.emju.logging.LogController.updateLoglevel(loggerName:String ?= null, logLevel:String ?=null)
+GET 	/MyList1/services/logger              com.safeway.app.emju.logging.LogController.getLoglevel(loggerName:String ?= null) 
