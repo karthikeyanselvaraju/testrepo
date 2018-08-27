@@ -6,11 +6,6 @@ pipeline {
   stages {
   	  
     stage('SonarQube Analysis') {
-		when {
-	       expression{
-	          BRANCH_NAME == 'master' || BRANCH_NAME ==~ /release.*/ || BRANCH_NAME ==~ /hotfix.*/  || BRANCH_NAME ==~ /devops.*/ 
-	        }
-	    }
       steps {
         script {
             try {
