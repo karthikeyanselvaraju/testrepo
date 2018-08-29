@@ -1,7 +1,7 @@
 pipeline {
   agent any 
   /*Branches enabled with CICD currently
-    master, hotfix, release* 
+    master, hotfix, 
   */
   stages {
   	  
