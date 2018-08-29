@@ -1,7 +1,7 @@
 pipeline {
   agent any 
   stages {
-  	  
+  	//analysis  
     stage('SonarQube Analysis') {
       steps {
         script {
