@@ -1,8 +1,5 @@
 pipeline {
   agent any 
-  /*Branches enabled with CICD currently
-    master, hotfix, 
-  */
   stages {
   	  
     stage('SonarQube Analysis') {
@@ -10,7 +7,7 @@ pipeline {
         script {
             try {
                 def scannerHome = tool 'SONAR_SCANNER';
-                
+             
                 withSonarQubeEnv('sonar') {				
                     	sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectVersion=1.0 -Dsonar.language=java -Dsonar.projectKey=mylist -Dsonar.projectName=mylist -Dsonar.sources=${workspace} -Dsonar.java.binaries=. -Dsonar.dynamicAnalysis=reuseReports"					
                 }
