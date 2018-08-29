@@ -7,10 +7,9 @@ pipeline {
         script {
             try {
                 def scannerHome = tool 'SONAR_SCANNER';
-                
-                withSonarQubeEnv('sonar') {
-			sh "./activator jacoco:cover"					
-                    	sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectVersion=1.0 -Dsonar.projectKey=mylist -Dsonar.projectName=mylist -Dsonar.sources=app -Dsonar.java.binaries=target/scala-2.11/classes -Dsonar.java.coveragePlugin=jacoco -Dsonar.dynamicAnalysis=reuseReports -Dsonar.jacoco.reportPath=target/scala-2.11/jacoco/jacoco.exec"					
+             
+                withSonarQubeEnv('sonar') {				
+                    	sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectVersion=1.0 -Dsonar.language=java -Dsonar.projectKey=mylist -Dsonar.projectName=mylist -Dsonar.sources=${workspace} -Dsonar.java.binaries=. -Dsonar.dynamicAnalysis=reuseReports"					
                 }
             } catch (Exception err) {                          
                 throw err
